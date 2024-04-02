@@ -1,28 +1,34 @@
-SRCS		= 
-OBJS		= $(SRCS:.c=.o)
+SRC_CLIENT	= ./src/ft_client.c
 
+SRC_SERVER	= ./src/ft_server.c
+
+INCLUDES	= ./inc
 CC			= cc
-CFLAGS		= -g -Wall -Werror -Wextra -I$(LIBFT_PATH)
 
+CFLAGS		= -g -Wall -Werror -Wextra 
+INC_FLAGS	= -I$(INCLUDES) -L$(LIBFT_PATH) -lft
 RM			= rm -f
 
 LIBFT_PATH	= ./libft
 LIBFT		= $(LIBFT_PATH)/libft.a
 
-NAME		= ft_server ft_client
+NAME		= server client
 
 all:		$(NAME)
 
 $(LIBFT):	
-			make -C $(LIBFT_PATH)
+			@make -s -C $(LIBFT_PATH)
 
-$(NAME):	$(OBJS) $(LIBFT)
-				ar rcs $(NAME) $(OBJS)
+server:	$(LIBFT)
+				$(CC) $(CFLAGS) $(SRC_SERVER) $(INC_FLAGS) -o server 
+
+client:	$(LIBFT)
+				$(CC) $(CFLAGS) $(SRC_CLIENT) $(INC_FLAGS) -o client 
 clean:
-				make clean -C $(LIBFT_PATH)
-				$(RM) $(OBJS)
+				@make -s clean -C $(LIBFT_PATH)
+				@$(RM) $(OBJS)
 fclean:		clean
-				make fclean -C $(LIBFT_PATH)
-				$(RM) $(NAME)
+				@make -s fclean -C $(LIBFT_PATH)
+				@$(RM) $(NAME)
 re:		
-				make fclean all
+				@make fclean all

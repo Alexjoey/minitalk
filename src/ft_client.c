@@ -1,12 +1,12 @@
 #include "minitalk.h"
 
-static void	ft_input_error(int argc, char **argv)
+static bool	is_input_valid(int argc, char **argv)
 {
 	int	i;
 
 	if (argc != 3)
 		return (false);
-	i = 0;
+	i = -1;
 	while (argv[1][++i])
 		if (!ft_strchr("0123456789", argv[1][i]))
 			return (false);
@@ -33,7 +33,7 @@ static void	ft_send_char(unsigned char c, int pid)
 {
 	int	bit;
 
-	i = -1;
+	bit = -1;
 	while (++bit < 8)
 	{
 		if (c & 0x01)
@@ -51,15 +51,18 @@ int	main(int argc, char **argv)
 	int		len;
 	int		i;
 
-	if (ft_inputerror(argc, argv) == false)
+	if (is_input_valid(argc, argv) == false)
+	{
+		ft_printf("Wrong input, should be ./client pid message\n");
 		return (-1);
+	}
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 		return (-1);
 	len = ft_strlen(argv[2]);
 	i = -1;
-	ft_send_strlen_bit_by_bit(len, pid);
+	ft_send_strlen(len, pid);
 	while (argv[2][++i])
-		ft_send_next_char_bit_by_bit(argv[2][i], pid);
-	ft_send_next_char_bit_by_bit(argv[2][i], pid);
+		ft_send_char(argv[2][i], pid);
+	ft_send_char(argv[2][i], pid);
 }
