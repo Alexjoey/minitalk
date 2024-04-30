@@ -20,7 +20,7 @@ static void	ft_send_strlen(int len, int pid)
 	i = -1;
 	while (++i < 32)
 	{
-		if (len & 0x01)
+		if (len & 1)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
