@@ -1,5 +1,5 @@
 
-#ifndef	MINITALK_H
+#ifndef MINITALK_H
 # define MINITALK_H
 
 # include "../libft/inc/libft.h"
@@ -7,5 +7,5 @@
 # include <stdbool.h>
 # include <signal.h>
 
-# define WAIT_TIME 100 
+# define WAIT_TIME 1000 
 #endif
