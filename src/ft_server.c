@@ -41,7 +41,7 @@ void	ft_handler(int signal)
 		bit = 0;
 		i = 0;
 	}
-	timer = 0;
+	g_timer = 0;
 }
 
 int	main(int argc, char **argv)

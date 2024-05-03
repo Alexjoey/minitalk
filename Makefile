@@ -5,7 +5,7 @@ SRC_SERVER	= ./src/ft_server.c
 INCLUDES	= ./inc
 CC			= cc
 
-#CFLAGS		= -g -Wall -Werror -Wextra 
+CFLAGS		= -g -Wall -Werror -Wextra 
 INC_FLAGS	= -I$(INCLUDES) -L$(LIBFT_PATH) -lft
 RM			= rm -f
 
