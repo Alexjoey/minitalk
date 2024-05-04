@@ -6,33 +6,13 @@
 /*   By: amylle <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:10:26 by amylle            #+#    #+#             */
-/*   Updated: 2024/05/04 17:10:29 by amylle           ###   ########.fr       */
+/*   Updated: 2024/05/04 19:02:53 by amylle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
 int	g_timer;
-
-int	ft_receive_strlen(int signal)
-{
-	static int	i;
-	static int	bit;
-	int			temp;
-
-	if (!i)
-		i = 0;
-	if (signal == SIGUSR2)
-		i |= (1 << bit);
-	bit++;
-	if (bit == 32)
-	{
-		temp = i;
-		i = 0;
-		return (temp);
-	}
-	return (0);
-}
 
 void	ft_handler(int signal)
 {
@@ -78,7 +58,7 @@ int	main(int argc, char **argv)
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 	{
-		sleep(1);
+		usleep(WAIT_TIME * 5);
 		g_timer++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: amylle <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:10:46 by amylle            #+#    #+#             */
-/*   Updated: 2024/05/04 17:10:48 by amylle           ###   ########.fr       */
+/*   Updated: 2024/05/04 19:02:36 by amylle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ int	main(int argc, char **argv)
 	}
 	i = -1;
 	while (argv[2][++i])
+	{
+		if (i % 5)
+			usleep (WAIT_TIME * 5);
 		ft_send_char(argv[2][i], pid);
+	}
 	ft_send_char(argv[2][i], pid);
 }

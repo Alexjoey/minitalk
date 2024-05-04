@@ -6,7 +6,7 @@
 /*   By: amylle <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:10:39 by amylle            #+#    #+#             */
-/*   Updated: 2024/05/04 17:10:41 by amylle           ###   ########.fr       */
+/*   Updated: 2024/05/04 18:58:32 by amylle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@
 # include <stdbool.h>
 # include <signal.h>
 
-# define WAIT_TIME 1000 
+# define WAIT_TIME 500 
 #endif
