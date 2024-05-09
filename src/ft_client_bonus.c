@@ -59,6 +59,10 @@ int	main(int argc, char **argv)
 	}
 	i = -1;
 	while (argv[2][++i])
+	{
+		/*if (i % 5)
+			usleep (WAIT_TIME);*/
 		ft_send_char(argv[2][i], pid);
+	}
 	return (0);
 }

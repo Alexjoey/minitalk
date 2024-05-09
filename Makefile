@@ -1,6 +1,8 @@
 SRC_CLIENT	= ./src/ft_client.c
-
 SRC_SERVER	= ./src/ft_server.c
+
+SRC_BONUS_S	= ./src/ft_server_bonus.c
+SRC_BONUS_C	= ./src/ft_client_bonus.c
 
 INCLUDES	= ./inc
 CC			= cc
@@ -24,11 +26,17 @@ server:	$(LIBFT)
 
 client:	$(LIBFT)
 				$(CC) $(CFLAGS) $(SRC_CLIENT) $(INC_FLAGS) -o client 
+
+bonus: $(LIBFT)
+				$(CC) $(CFLAGS) $(SRC_BONUS_C) $(INC_FLAGS) -o client
+				$(CC) $(CFLAGS) $(SRC_BONUS_S) $(INC_FLAGS) -o server
+
 clean:
 				@make -s clean -C $(LIBFT_PATH)
 				@$(RM) $(OBJS)
+
 fclean:		clean
 				@make -s fclean -C $(LIBFT_PATH)
-				@$(RM) $(NAME)
+				@$(RM) $(NAME) 
 re:		
 				@make fclean all
